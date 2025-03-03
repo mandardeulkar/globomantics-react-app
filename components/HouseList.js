@@ -1,3 +1,5 @@
+import HouseRow from "./HouseRow";
+
 const HouseList = () => {
 
     // Table static data
@@ -31,7 +33,7 @@ const HouseList = () => {
                         <th>Asking Price</th>
                     </tr>
                 </thead>
-                <tbody>
+                {/* <tbody>
                     {houses.map((h) => (
                         <tr key={h.id}>
                             <td>{h.address}</td>
@@ -39,6 +41,11 @@ const HouseList = () => {
                             <td>{h.price}</td>
                         </tr>
                     ))}
+                </tbody> */}
+                <tbody>
+                    {houses.map((h)=> {
+                        return <HouseRow key={h.id} house={h} />
+                    })}
                 </tbody>
             </table>
         </>
