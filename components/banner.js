@@ -1,6 +1,6 @@
 //import styles from "./banner.module.css"
 import { logo } from "./banner.module.css"
-const Banner = () => {
+const Banner = (props) => {
     return(
         <header className="row mt-5">
             <div className="col-5">
@@ -8,7 +8,7 @@ const Banner = () => {
                 className= {logo} />
             </div>
             <div className="col-7">
-                Providing houses all over the world
+                {props.headerText}
             </div>
         </header>
     );
