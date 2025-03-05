@@ -1,18 +1,24 @@
 import { useContext } from "react";
 import { ReactContext } from "./app";
 
-const HouseRow = ({house}) => {
+const HouseRow = ({ house }) => {
 
-    const home = useContext(ReactContext);
+    const { homeState, setHomeState } = useContext(ReactContext);
 
-    return(
-            <tr>
-                <td>{house.address}</td>
-                <td>{house.country}</td>
-                <td>{house.price}</td>
-                <td>{home.homeCondition}</td>
-                <td>{home.bidStatus}</td>
-            </tr>
+    return (
+        <tr>
+            <td>{house.address}</td>
+            <td>{house.country}</td>
+            <td>{house.price}</td>
+            <td>{homeState.homeCondition}</td>
+            <td>{homeState.bidStatus}</td>
+            <td>
+                {/* Button to update state */}
+                <button className="btn btn-primary" onClick={() => setHomeState({ homeCondition: "Good", bidStatus: "Closed" })}>
+                    Update Status
+                </button>
+            </td>
+        </tr>
     );
 };
 

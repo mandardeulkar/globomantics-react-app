@@ -1,17 +1,17 @@
 import Banner from "./banner";
 import Footer from "./footer";
 import HouseList from "./HouseList";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const ReactContext = createContext();
 
 const App = () => {
 
-    // Object created to pass through ReactContext
-    const homeObj = {
-        homeCondition: "Excellent", 
-        bidStatus: "Open for Bid"
-    };
+    // Pass state to the ReactContext
+    const [homeState, setHomeState] = useState({
+        homeCondition: "***", 
+        bidStatus: "***"
+    });
 
     return (
 
@@ -21,7 +21,7 @@ const App = () => {
             <Banner headerText="Providing houses all over the world" />
 
             {/* Passing 'homeObj' using ReactContext only to this child component */}
-            <ReactContext.Provider value={ homeObj }>
+            <ReactContext.Provider value={ {homeState, setHomeState} }>
                 {/* Table Component to display data */}
                 <HouseList />
             </ReactContext.Provider>
