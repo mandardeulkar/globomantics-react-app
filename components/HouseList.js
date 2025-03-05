@@ -31,6 +31,8 @@ const HouseList = () => {
                         <th>Address</th>
                         <th>Country</th>
                         <th>Asking Price</th>
+                        <th>House Condition</th>
+                        <th>Bid Status</th>
                     </tr>
                 </thead>
                 {/* <tbody>
