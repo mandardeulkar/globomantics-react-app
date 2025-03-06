@@ -33,6 +33,7 @@ const HouseList = () => {
                         <th>Asking Price</th>
                         <th>House Condition</th>
                         <th>Bid Status</th>
+                        <th>Update Button</th>
                     </tr>
                 </thead>
                 {/* <tbody>
