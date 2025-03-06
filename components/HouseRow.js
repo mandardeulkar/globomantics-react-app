@@ -3,7 +3,7 @@ import { ReactContext } from "./app";
 
 const HouseRow = ({ house }) => {
 
-    const { homeState, setHomeState } = useContext(ReactContext);
+    const { homeState, dispatch } = useContext(ReactContext);
 
     // Memoizing the expensive price calculation
     const memoizeHousePrice = useMemo(()=>{
@@ -21,7 +21,10 @@ const HouseRow = ({ house }) => {
             <td>{homeState.bidStatus}</td>
             <td>
                 {/* Button to update state */}
-                <button className="btn btn-primary" onClick={() => setHomeState({ homeCondition: "Good", bidStatus: "Closed" })}>
+                <button className="btn btn-primary" onClick={() => dispatch({
+                    type: "UPDATE_STATE",
+                    payload: { homeCondition: "Good" }
+                }) }>
                     Update Status
                 </button>
             </td>

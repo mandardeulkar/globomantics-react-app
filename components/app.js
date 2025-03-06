@@ -1,17 +1,34 @@
 import Banner from "./banner";
 import Footer from "./footer";
 import HouseList from "./HouseList";
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
 
 export const ReactContext = createContext();
 
 const App = () => {
 
-    // Pass state to the ReactContext
-    const [homeState, setHomeState] = useState({
+    //initial object
+    const initialHomeState = {
         homeCondition: "***", 
         bidStatus: "***"
-    });
+    };
+
+    //Defining the Reducer Function
+    const homeReducer = (state, action) => {
+        switch(action.type){
+            case "UPDATE_STATE":
+                return {
+                    ...state,
+                    homeCondition: action.payload.homeCondition ?? state.homeCondition,
+                    bidStatus: action.payload.bidStatus ?? state.bidStatus
+                };
+            default:
+                return state;
+        }
+    };
+
+    //useReducer hook for Managing State
+    const [homeState, dispatch] = useReducer(homeReducer, initialHomeState);
 
     return (
 
@@ -20,8 +37,8 @@ const App = () => {
             {/* props example -  */}
             <Banner headerText="Providing houses all over the world" />
 
-            {/* Passing 'homeObj' using ReactContext only to this child component */}
-            <ReactContext.Provider value={ {homeState, setHomeState} }>
+            {/* Passing 'homeState' & 'dispatch' to ReactContext only to this child component */}
+            <ReactContext.Provider value={ {homeState, dispatch} }>
                 {/* Table Component to display data */}
                 <HouseList />
             </ReactContext.Provider>
