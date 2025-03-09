@@ -1,42 +1,7 @@
 import Banner from "./banner";
-import CompanyName from "./CompanyName";
 import Footer from "./footer";
-import HouseList from "./HouseList";
-import { createContext, useReducer } from "react";
-import AdditionalFunctionalityHOC from "./AdditionalFunctionalityHOC";
-import MultiplePropsHOC from "./MultiplePropsHOC";
-import CompanyDetails from "./CompanyDetails";
-
-export const ReactContext = createContext();
-
-//Enhanced Component with HOCs
-const EnhancedComponent = AdditionalFunctionalityHOC(CompanyName);
-const CompanyDetailsEnhancedCompoennt = MultiplePropsHOC(CompanyDetails);
 
 const App = () => {
-
-    //initial object
-    const initialHomeState = {
-        homeCondition: "***", 
-        bidStatus: "***"
-    };
-
-    //Defining the Reducer Function
-    const homeReducer = (state, action) => {
-        switch(action.type){
-            case "UPDATE_STATE":
-                return {
-                    ...state,
-                    homeCondition: action.payload.homeCondition ?? state.homeCondition,
-                    bidStatus: action.payload.bidStatus ?? state.bidStatus
-                };
-            default:
-                return state;
-        }
-    };
-
-    //useReducer hook for Managing State
-    const [homeState, dispatch] = useReducer(homeReducer, initialHomeState);
 
     return (
 
@@ -45,15 +10,6 @@ const App = () => {
             {/* props example -  */}
             <Banner headerText="Providing houses all over the world" />
 
-            <EnhancedComponent /> 
-
-            <CompanyDetailsEnhancedCompoennt companyname="JSW Steel" />
-
-            {/* Passing 'homeState' & 'dispatch' to ReactContext only to this child component */}
-            <ReactContext.Provider value={ {homeState, dispatch} }>
-                {/* Table Component to display data */}
-                <HouseList />
-            </ReactContext.Provider>
 
             {/* children allows JSX/HTML code syntax written in between the tags.
             like below code -  */}
