@@ -1,5 +1,6 @@
 import Banner from "./banner";
 import Footer from "./footer";
+import InputTextAreaComponent from "./scenarios/InputTextAreaComponent";
 
 const App = () => {
 
@@ -10,6 +11,7 @@ const App = () => {
             {/* props example -  */}
             <Banner headerText="Providing houses all over the world" />
 
+            <InputTextAreaComponent />
 
             {/* children allows JSX/HTML code syntax written in between the tags.
             like below code -  */}
