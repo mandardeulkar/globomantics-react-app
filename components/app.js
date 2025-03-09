@@ -4,10 +4,14 @@ import Footer from "./footer";
 import HouseList from "./HouseList";
 import { createContext, useReducer } from "react";
 import AdditionalFunctionalityHOC from "./AdditionalFunctionalityHOC";
+import MultiplePropsHOC from "./MultiplePropsHOC";
+import CompanyDetails from "./CompanyDetails";
 
 export const ReactContext = createContext();
 
+//Enhanced Component with HOCs
 const EnhancedComponent = AdditionalFunctionalityHOC(CompanyName);
+const CompanyDetailsEnhancedCompoennt = MultiplePropsHOC(CompanyDetails);
 
 const App = () => {
 
@@ -41,7 +45,9 @@ const App = () => {
             {/* props example -  */}
             <Banner headerText="Providing houses all over the world" />
 
-            <EnhancedComponent company="ABC" foundationYear="2022" /> 
+            <EnhancedComponent /> 
+
+            <CompanyDetailsEnhancedCompoennt companyname="JSW Steel" />
 
             {/* Passing 'homeState' & 'dispatch' to ReactContext only to this child component */}
             <ReactContext.Provider value={ {homeState, dispatch} }>

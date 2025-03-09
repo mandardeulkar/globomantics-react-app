@@ -2,10 +2,10 @@
 
 import React from "react";
 
-const CompanyName = ( { company, fondationYear } ) => {
+const CompanyName = () => {
 
     return(
-        <h2>This is {company} founded in {fondationYear}</h2>
+        <h2>This is ABC founded in 1997</h2>
     );
 };
 
