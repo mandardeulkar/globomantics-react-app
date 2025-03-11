@@ -1,5 +1,6 @@
 import Banner from "./banner";
 import Footer from "./footer";
+import AgeValidationComponent from "./scenarios/AgeValidationComponent";
 import FormValidationComponent from "./scenarios/FormValidationComponent";
 
 const App = () => {
@@ -13,7 +14,9 @@ const App = () => {
 
             {/* <InputTextAreaComponent /> */}
 
-            <FormValidationComponent />
+            {/* <FormValidationComponent /> */}
+
+            <AgeValidationComponent />
 
             {/* children allows JSX/HTML code syntax written in between the tags.
             like below code -  */}
