@@ -3,6 +3,7 @@ import Footer from "./footer";
 import AgeValidationComponent from "./scenarios/AgeValidationComponent";
 import FormValidationComponent from "./scenarios/FormValidationComponent";
 import MultipleCheckboxesComponent from "./scenarios/MultipleCheckboxesComponent";
+import NormalValidationComponent from "./scenarios/NormalValidationComponent";
 
 const App = () => {
 
@@ -19,7 +20,9 @@ const App = () => {
 
             {/* <AgeValidationComponent /> */}
 
-            <MultipleCheckboxesComponent />
+            {/* <MultipleCheckboxesComponent /> */}
+
+            <NormalValidationComponent />
 
             {/* children allows JSX/HTML code syntax written in between the tags.
             like below code -  */}
